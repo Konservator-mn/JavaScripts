@@ -1,4 +1,4 @@
-let randomObj = {
+/*let randomObj = {
     a: "bla-bla-bla",
     b: [1, 2, 3, 4, 5, 6, "aaaa"],
     3: null,
@@ -48,7 +48,7 @@ let randomObj = {
     toString: function () {
         return "Here is no string model of that object"
     }
-};
+};*/
 
 /*
     Вот рекурсивная функция!!!

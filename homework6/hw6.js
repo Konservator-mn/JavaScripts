@@ -1,6 +1,18 @@
-let user = new createNewUser("Sviatoslav", "Kobyvnikov");
+let user = new createNewUser(
+    ask("Enter your firstname", checkAnswer),
+    ask("Enter your lastname", checkAnswer)
+);
 
+console.dir(user);
 
+function ask(phrase, condition){
+    let answer = prompt(phrase);
+    return condition(answer)?answer:ask(phrase, condition);
+}
+
+function checkAnswer(answer) {
+    return answer.length && answer.length<20 && !(answer.replace(/[a-z,\s,-]/gi,"")).length;
+}
 
 function createNewUser(firstName, lastName) {
     if (arguments.length === 2) {
