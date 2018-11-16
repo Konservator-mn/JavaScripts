@@ -5,7 +5,7 @@ if (listLength) addListItem();
 
 function addListItem() {
 	let item = document.createElement('li');
-	item.innerText = prompt("Введите текст для "+(list.children.length+1)+" пункта списка");
+	item.innerText = prompt(`Введите текст для ${list.children.length+1} пункта списка`);
 	list.appendChild(item);
 	if (--listLength) addListItem();
 	else timer();
