@@ -24,9 +24,6 @@ function timer () {
 				timerContainer.innerText = time-timePassed;
 				timerItteration();
 			}, 1);
-		} else {
-			list.style.display = 'none';
-			timerContainer.parentElement.style.display = 'none';
-		}
+		} else document.body.innerHTML = "";
 	}
 }
