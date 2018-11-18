@@ -1,0 +1,84 @@
+@font-face {
+	font-family: "calcFont";
+	src:url("./fonts/Calculator.ttf");
+	font-weight: 800;
+}
+section {
+	border: 1px solid grey;
+}
+
+.clock {
+	width: 30em;
+	height: 30em;
+	margin: 0 auto;
+	border-radius: 50%;
+	z-index: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(192,192,192);
+}
+
+.border {
+	width: 27em;
+	height: 27em;
+	border-radius: 50%;
+	border: 1px solid black;
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(192,192,192);
+}
+
+.face {
+	width: 26em;
+	height: 26em;
+	border-radius: 50%;
+	border: 1px solid black;
+	z-index: 3;
+	background-color: rgb(255, 252, 233);
+	position: relative;
+}	
+
+
+.cd-border {
+	width: 20em;
+	height: 20em;
+	border-radius: 50%;
+	border: 1px solid black;
+	z-index: 4;
+	position: absolute;
+}
+
+.big-line {
+	border-top-width: 2em;
+	border-top-color: black;
+	border-top-style: solid;
+	border-left: 1px solid transparent;
+	border-right: 1px solid transparent;
+	height: 0;
+	width: 2px;
+	position: absolute;
+}
+
+.small-line {
+	border-top-width: 1em;
+	border-top-color: black;
+	border-top-style: solid;
+	border-left: : none;
+	border-right: : none;
+	width: 2px;
+	height: 0;
+	position: absolute;
+
+}
+
+.current-time {
+	font-family: calcFont;
+	color: rgb(176, 67, 255);
+	position: absolute;
+	top: 66%;
+	left: 29%;
+	font-size: 2em;
+}
