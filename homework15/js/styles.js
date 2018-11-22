@@ -40,22 +40,31 @@ function allocateDigitsByCircle (digits, parent) {
 }
 
 window.showTime = function (){
-	timer.start();
-	let timeField = $(".current-time");
+	$(".current-time").children().each(function () {
+		$(this).css('width', $(this).width()+'px');
+	});
+	
+    displayTime("00", "00", "00");
+    
 	return setInterval(()=>{
 		let time = timer.sayTime();
-		for (i in time) time[i] = time[i]+'';
-		time.hours = 
-		$(timeField).text(
-			`${addSumbols(time.hours, 2)} : `+
-			`${addSumbols(time.minutes, 2)} : `+
-			`${addSumbols(time.seconds, 2)} : `+
-			`${addSumbols(time.milliseconds, 3)}`);
+		let minutes = addSumbols(time.minutes, 2);
+		let seconds = addSumbols(time.seconds, 2);
+		let milliseconds = addSumbols(time.milliseconds, 3);
+
+		displayTime (minutes, seconds, milliseconds);
 	}, 1);
 
+	function displayTime (minutes, seconds, milliseconds) {
+    	$('#minutes').text(minutes);
+    	$('#seconds').text(seconds);
+    	$('#milliseconds').text(milliseconds);
+    }
+
 	function addSumbols (value, length) {
+		value = value.toString();
 		while (value.length<length){
-			value = '0'+value;
+			value = "0" + value;
 		}
 		return value;
 	}
@@ -69,3 +78,23 @@ window.rotateArrow = function (){
 		$(arrow).css('transform', `rotate(${angle}deg)`);
 	}, 10);
 }();
+
+function pressButton (btnAction, btn) {
+	let defaultHeight = btn.height();
+	let defaultEndHeight = defaultHeight/2;
+	return function (click) {
+        click.preventDefault();
+        btn.animate({
+			height: defaultEndHeight
+		}, 10, ()=>{
+            btnAction();
+            btn.animate({
+                height:defaultHeight,
+			},100);
+		});
+
+    }
+}
+
+$(".start").click(pressButton(timer.startPause, $(".start")));
+$(".stop").click(pressButton(timer.stop, $(".stop")));
